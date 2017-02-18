@@ -7,7 +7,7 @@
         <% if current_user %>
           <li><%= link_to "Sign out", signout_path, id: "sign_out" %></li>
         <% else %>
-          <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
+        <li><%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %></li>
         <% end %>
       </ul>
   </div>
