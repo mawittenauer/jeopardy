@@ -2,14 +2,25 @@
 <br>
 <div class="row">
   <% @game.categories.each do |category| %>
+  
     <div class="col-sm-2">
       <div class="well">
         <h3 class="text-center"><%= category.name %></h3>
       </div>
-      <%= bootstrap_form_for category.answers.build do |answer| %>
+      <%= bootstrap_form_for [category, category.answers.build] do |answer| %>
         <%= answer.text_field :content, label: "Add Answer" %>
-        <%= answer.submit "Create" %>
+        <%= answer.submit "Add Answer" %>
       <% end %>
+      <h3>Answers</h3>
+      
+      <% category.answers.each do |answer| %>
+        <% if !answer.new_record? %> 
+          <div class="well">
+            <h5><%= answer.content %></h5>
+          </div>
+        <% end %>
+      <% end %>
+      
     </div>
   <% end %>
 </div>
