@@ -11,3 +11,10 @@
     <% end %>
   </div>
 <% end %>
+
+<script>
+  $('.card').on("click", function() {
+    $(this).children(".points").hide();
+    $(this).children(".answer").fadeIn(2000);
+  });
+</script>

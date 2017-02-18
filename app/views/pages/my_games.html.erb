@@ -1,0 +1,15 @@
+<h2>Welcome, <%= current_user.name %></h2>
+
+<div class="row">
+  <% current_user.games.each do |game| %>
+    <div class="col-sm-3">
+      <div class="well">
+        <h3><%= game.name %></h3>
+        <%= link_to "play", game_play_url(game) %>
+        <%= link_to "edit", game %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<%= link_to "New Game", new_game_path, class: "btn btn-default" %>

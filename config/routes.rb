@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root 'pages#front'
+  get 'my_games', to: 'pages#my_games'
   resources :games
   resources :categories do
     resources :answers, only: [:create]

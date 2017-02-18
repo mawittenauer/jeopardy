@@ -1,4 +1,6 @@
 class AnswersController < ApplicationController
+  before_action :require_user
+  
   def create
     @category = Category.find(params[:category_id])
     @answer = Answer.new(answer_params)
