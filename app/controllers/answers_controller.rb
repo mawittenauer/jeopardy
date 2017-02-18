@@ -5,11 +5,23 @@ class AnswersController < ApplicationController
     @answer.category = @category
     @game = @category.game
     
-    if @answer.save
-      redirect_to @game
+    if @answer.valid?
+      if @answer.category.answers.count < 5
+        @answer.save
+        redirect_to @game
+      else
+        flash.now[:danger] = "You cannot create more than five answers per category"
+        render 'games/show'
+      end
     else
       render 'games/show'
     end
+  end
+  
+  def destroy
+    @answer = Answer.find(params[:id])
+    @answer.destroy
+    redirect_to @answer.category.game
   end
   
   private
