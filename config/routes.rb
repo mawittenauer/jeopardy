@@ -6,4 +6,8 @@ Rails.application.routes.draw do
   end
   resources :answers, only: [:destroy]
   get '/game_play/:id', to: 'games#game_play', as: :game_play
+  
+  match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
+  match 'auth/failure', to: redirect('/'), via: [:get, :post]
+  match 'signout', to: 'sessions#destroy', as: 'signout', via: [:get, :post]
 end
