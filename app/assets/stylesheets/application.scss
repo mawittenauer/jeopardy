@@ -21,3 +21,32 @@
 body {
   padding-top: 40px;
 }
+
+.answer {
+  display: none;
+}
+
+.card {
+  cursor: pointer;
+  height: 150px;
+}
+
+.red {
+  background-color: #c22326;
+}
+
+.orange {
+  background-color: #f37338;
+}
+
+.yellow {
+  background-color: #fdb632;
+}
+
+.green {
+  background-color: #027878;
+}
+
+.light-blue {
+  background-color: #add8E6;
+}

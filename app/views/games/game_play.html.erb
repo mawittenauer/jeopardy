@@ -1,0 +1,13 @@
+<h1 class="text-center"><%= @game.name %></h1>
+
+<% @game.categories.each do |category| %>
+  <div class="col-sm-2">
+    <h1 class="text-center"><%= category.name %></h1>
+    <% category.answers.each_with_index do |answer, index| %>
+      <div class="well card red">
+        <h1 class="text-center points"><%= (index + 1) * 100 %></h1>
+        <h2 class="text-center answer"><%= answer.content %></h2>
+      </div>
+    <% end %>
+  </div>
+<% end %>
