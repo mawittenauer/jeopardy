@@ -3,11 +3,11 @@ require "rails_helper"
 describe GamesController do
   describe "POST create" do
     it "shouldn't create a new game with invalid input" do
-      post :create, game: { name: "", category: ["", "", "", "", ""] }
+      post :create, game: { name: "", category: ["", "", "", "", "", ""] }
       expect(Game.count).to eq(0)
     end
     it "should render new template for invalid input" do
-      post :create, game: { name: "", category: ["", "", "", "", ""] }
+      post :create, game: { name: "", category: ["", "", "", "", "", ""] }
       expect(response).to render_template :new
     end
     it "should create a new game with valid input" do
