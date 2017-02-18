@@ -3,6 +3,10 @@ class GamesController < ApplicationController
     @game = Game.new
   end
   
+  def show
+    @game = Game.find(params[:id])
+  end
+  
   def create
     @game = Game.new(game_params)
     
@@ -24,7 +28,7 @@ class GamesController < ApplicationController
       @category_five.save
       @category_six.save
       
-      redirect_to root_path
+      redirect_to @game
     else
       flash.now[:danger] = "You must enter a game name and six categories"
       render :new

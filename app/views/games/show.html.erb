@@ -1,0 +1,11 @@
+<h1 class="text-center"><%= @game.name %></h1>
+
+<div class="row">
+  <% @game.categories.each do |category| %>
+    <div class="col-sm-2">
+      <div class="well">
+        <h3 class="text-center"><%= category.name %></h3>
+      </div>
+    </div>
+  <% end %>
+</div>

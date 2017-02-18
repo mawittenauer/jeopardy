@@ -16,7 +16,7 @@ describe GamesController do
     end
     it "should redirect to root path with valid input" do
       post :create, game: { name: "Presidents", category: ["Name", "Name", "Name", "Name", "Name", "Name"] }
-      expect(response).to redirect_to root_path
+      expect(response).to redirect_to Game.first
     end
     it "should create six categories with valid input" do
       post :create, game: { name: "Presidents", category: ["Name", "Name", "Name", "Name", "Name", "Name"] }
