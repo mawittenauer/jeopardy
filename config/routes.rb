@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'games#new'
+  root 'pages#front'
   resources :games
   resources :categories do
     resources :answers, only: [:create]
