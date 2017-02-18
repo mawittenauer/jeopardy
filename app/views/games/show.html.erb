@@ -1,4 +1,4 @@
-<h1 class="text-center"><%= @game.name %> <%= link_to "Play Game", game_play_path(@game), class: "btn btn-default" %></h1>
+<h1 class="text-center"><%= @game.name %> <%= link_to "Play Game", game_play_path(@game), class: "btn btn-default", style: "margin-bottom: 5px;" %></h1>
 <br>
 <div class="row">
   <% @game.categories.each do |category| %>
@@ -17,6 +17,7 @@
         <% if !answer.new_record? %> 
           <div class="well">
             <h5><%= answer.content %></h5>
+            <%= link_to "Delete", answer_path(answer), method: :delete, data: { confirm: "Are you sure?" } %>
           </div>
         <% end %>
       <% end %>
