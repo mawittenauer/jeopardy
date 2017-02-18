@@ -18,9 +18,9 @@ describe GamesController do
       post :create, game: { name: "Presidents", category: ["Name", "Name", "Name", "Name", "Name", "Name"] }
       expect(response).to redirect_to root_path
     end
-    it "should create five categories with valid input" do
+    it "should create six categories with valid input" do
       post :create, game: { name: "Presidents", category: ["Name", "Name", "Name", "Name", "Name", "Name"] }
-      expect(Category.count).to eq(5)
+      expect(Category.count).to eq(6)
     end
   end
 end

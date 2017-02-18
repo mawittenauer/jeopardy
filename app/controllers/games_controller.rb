@@ -26,7 +26,7 @@ class GamesController < ApplicationController
       
       redirect_to root_path
     else
-      flash.now[:danger] = "You must enter a game name and 5 categories"
+      flash.now[:danger] = "You must enter a game name and six categories"
       render :new
     end
   end
