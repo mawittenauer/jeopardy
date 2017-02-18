@@ -22,6 +22,8 @@ class GamesController < ApplicationController
     if @game.valid? && @category_one.valid? && @category_two.valid? && 
        @category_three.valid? && @category_four.valid? && @category_five.valid? && @category_six.valid?
       
+      @game.user = current_user
+      
       @game.save
       @category_one.save
       @category_two.save

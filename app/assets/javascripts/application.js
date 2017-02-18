@@ -11,14 +11,8 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
 //= bootstrap-sprockets
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
-
-$(document).ready(function() {
-  $('.card').on("click", function() {
-    $(this).children(".points").hide();
-    $(this).children(".answer").fadeIn(2000);
-  });
-});
