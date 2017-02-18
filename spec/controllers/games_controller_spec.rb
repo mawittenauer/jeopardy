@@ -11,15 +11,15 @@ describe GamesController do
       expect(response).to render_template :new
     end
     it "should create a new game with valid input" do
-      post :create, game: { name: "Presidents", category: ["Name", "Name", "Name", "Name", "Name"] }
+      post :create, game: { name: "Presidents", category: ["Name", "Name", "Name", "Name", "Name", "Name"] }
       expect(Game.count).to eq(1)
     end
     it "should redirect to root path with valid input" do
-      post :create, game: { name: "Presidents", category: ["Name", "Name", "Name", "Name", "Name"] }
+      post :create, game: { name: "Presidents", category: ["Name", "Name", "Name", "Name", "Name", "Name"] }
       expect(response).to redirect_to root_path
     end
     it "should create five categories with valid input" do
-      post :create, game: { name: "Presidents", category: ["Name", "Name", "Name", "Name", "Name"] }
+      post :create, game: { name: "Presidents", category: ["Name", "Name", "Name", "Name", "Name", "Name"] }
       expect(Category.count).to eq(5)
     end
   end
