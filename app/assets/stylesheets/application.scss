@@ -15,12 +15,31 @@
  *= rails_bootstrap_forms
  */
 
-@import "bootstrap-sprockets";
-@import "bootstrap";
+
+/******************
+GENERAL
+******************/
 
 body {
   padding-top: 60px;
 }
+
+/******************
+FRONT PAGE
+******************/
+
+.jumbotron {
+  background-color: #fff;
+}
+
+.jumbotron p {
+  width: 80%;
+  margin: auto;
+}
+
+/******************
+GAMEPLAY
+******************/
 
 .answer {
   display: none;
@@ -28,29 +47,16 @@ body {
 
 .card {
   cursor: pointer;
-  height: 150px;
-}
-
-.red {
-  background-color: #c22326;
-}
-
-.orange {
-  background-color: #f37338;
-}
-
-.yellow {
-  background-color: #fdb632;
-}
-
-.green {
-  background-color: #027878;
+  height: 120px;
+  padding-top: 40px;
 }
 
 .light-blue {
-  background-color: #add8E6;
+  background-color: #3a87ad;
+  color: #fff;
 }
 
-.jumbotron {
-  margin-top: -20px;
+.card h1,
+.card h2 {
+  margin: 0;
 }

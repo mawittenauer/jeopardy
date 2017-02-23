@@ -1,12 +1,35 @@
 <div class="jumbotron text-center">
   <h1 class="text-center">This Is Jeopardy!</h1>
-  <p class="text-center">Create your very own Jeopardy game to play with your class!</p>
+  <br>
+  <p class="text-center">Create your own Jeopardy smart board game to play with your kids and share with other teachers.</p>
+  <br>
   <div id="user-widget">
     <% if current_user %>
       Welcome <strong><%= current_user.name %></strong>!
-      <%= link_to "Sign out", signout_path, id: "sign_out" %>
+    <%= link_to "Sign out", signout_path, id: "sign_out", class: "btn btn-default" %>
     <% else %>
-      <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
+    <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in", class: "btn btn-default facebook-link" %>
     <% end %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-4 text-center">
+    <div class="well">
+      <h2>Make Your Game</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    </div>
+  </div>
+  <div class="col-sm-4 text-center">
+    <div class="well">
+      <h2>Play It</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    </div>
+  </div>
+  <div class="col-sm-4 text-center">
+    <div class="well">
+      <h2>Share It</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    </div>
   </div>
 </div>
