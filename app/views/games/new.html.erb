@@ -1,17 +1,29 @@
 <h1>Create New Game</h1>
-
+<br>
+<h3>Name Your Game:</h3>
+<br>
 <%= bootstrap_form_for @game do |f| %>
   <div class="row">
     <div class="col-sm-12">
-      <%= f.text_field :name %>
+      <div class="well">
+        <%= f.text_field :name %>
+      </div>
     </div>
   </div>
 
   <div class="row">
+    <div class="col-sm-12">
+      <h3>Add Categories:</h3>
+      <br>
+    </div>
+  </div>
+  <div class="row">
     <% 6.times do |i| %>
       <div class="col-sm-2">
-        <label><%= "Category #{i + 1}" %></label>
-        <%= text_field_tag "game[category][]", "", class: "form-control" %>
+        <div class="well">
+          <label for="category_<%= i + 1 %>"><%= "Category #{i + 1}" %></label>
+          <%= text_field_tag "game[category][]", "", class: "form-control", id: "category_#{i + 1}" %>
+        </div>
       </div>
     <% end %>
   </div>
