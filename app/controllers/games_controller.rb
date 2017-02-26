@@ -4,7 +4,7 @@ class GamesController < ApplicationController
   before_action :require_creator, only: [:show]
   
   def index
-    @games = Game.all.order("plays DESC")
+    @games = Game.where("plays > ?", 0).order("plays DESC")
   end
   
   def new

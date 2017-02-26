@@ -4,8 +4,6 @@ class Game < ActiveRecord::Base
   belongs_to :user
   
   def complete?
-    sum = 0
-    categories.each { |category| sum += category.answers.count }
-    sum == 30
+    categories.all? { |category| category.complete? }
   end
 end
