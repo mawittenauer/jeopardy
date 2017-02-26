@@ -1,5 +1,7 @@
 class GamesController < ApplicationController
   before_action :require_user
+  before_action :find_game, only: [:show]
+  before_action :require_creator, only: [:show]
   
   def index
     @games = Game.all.order("plays DESC")
@@ -10,7 +12,6 @@ class GamesController < ApplicationController
   end
   
   def show
-    @game = Game.find(params[:id])
   end
   
   def create
@@ -51,5 +52,16 @@ class GamesController < ApplicationController
   private
   def game_params
     params.require(:game).permit(:name)
+  end
+  
+  def find_game
+    @game = Game.find(params[:id])
+  end
+  
+  def require_creator
+    if @game.user.id != current_user.id
+      flash[:danger] = "That is not your game to edit."
+      redirect_to root_path
+    end
   end
 end
