@@ -41,6 +41,7 @@ class GamesController < ApplicationController
   
   def game_play
     @game = Game.find(params[:id])
+    @game.increment!(:plays)
   end
   
   private
