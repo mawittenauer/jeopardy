@@ -5,6 +5,7 @@
     <div class="col-sm-3">
       <div class="well">
         <h3><%= game.name %></h3>
+        <p>This game is <%= game.percent_complete %> complete</p>
         <%= link_to "play", game_play_url(game), class: "btn" if game.complete? %>
         <%= link_to "edit", game, class: "btn"%>
       </div>

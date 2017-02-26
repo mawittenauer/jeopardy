@@ -6,4 +6,12 @@ class Game < ActiveRecord::Base
   def complete?
     categories.all? { |category| category.complete? }
   end
+  
+  def percent_complete
+    sum = 0
+    categories.each do |category|
+      sum += category.answers.count
+    end
+    (sum / 30.00) * 100
+  end
 end
