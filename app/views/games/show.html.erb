@@ -1,4 +1,4 @@
-<h1 class="text-center"><%= @game.name %> <%= link_to "Play Game", game_play_path(@game), class: "btn btn-default", style: "margin-bottom: 5px;" if @game.complete? %></h1>
+<h1 class="text-center"><%= @game.name %> <%= link_to "Play Game", game_play_path(@game), class: "btn btn-success", style: "margin-bottom: 5px;" if @game.complete? %></h1>
 <br>
 <div class="row">
   <% @game.categories.each do |category| %>
@@ -9,7 +9,7 @@
       </div>
       <%= bootstrap_form_for [category, category.answers.build] do |answer| %>
         <%= answer.text_field :content, label: "Add Answer" %>
-        <%= answer.submit "Add Answer" %>
+        <%= answer.submit "Add Answer", class: "btn btn-success" %>
       <% end %>
       <h3>Answers</h3>
       
