@@ -12,6 +12,6 @@ class Game < ActiveRecord::Base
     categories.each do |category|
       sum += category.answers.count
     end
-    (sum / 30.00) * 100
+    ((sum / 30.00) * 100).to_s + "%"
   end
 end
