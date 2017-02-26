@@ -3,4 +3,8 @@ class Category < ActiveRecord::Base
   belongs_to :game
   has_many :answers
   validates :answers, :length => { :maximum => 5 }
+  
+  def complete?
+    answers.count == 5
+  end
 end

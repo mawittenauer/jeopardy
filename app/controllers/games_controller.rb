@@ -1,8 +1,10 @@
 class GamesController < ApplicationController
   before_action :require_user
+  before_action :find_game, only: [:show]
+  before_action :require_creator, only: [:show]
   
   def index
-    @games = Game.all.order("plays DESC")
+    @games = Game.where("plays > ?", 0).order("plays DESC")
   end
   
   def new
@@ -10,7 +12,6 @@ class GamesController < ApplicationController
   end
   
   def show
-    @game = Game.find(params[:id])
   end
   
   def create
@@ -44,12 +45,35 @@ class GamesController < ApplicationController
   end
   
   def game_play
+    session[:return_to] ||= request.referer
     @game = Game.find(params[:id])
-    @game.increment!(:plays)
+    if @game.complete?
+      @game.increment!(:plays)
+    else
+      flash[:danger] = "That game is not ready to play."
+      if @game.user.id == current_user.id
+        flash[:danger] += " Make sure each category has 5 answers."
+        redirect_to @game
+      else
+        redirect = session.delete(:return_to)
+        redirect_to redirect
+      end
+    end
   end
   
   private
   def game_params
     params.require(:game).permit(:name)
+  end
+  
+  def find_game
+    @game = Game.find(params[:id])
+  end
+  
+  def require_creator
+    if @game.user.id != current_user.id
+      flash[:danger] = "That is not your game to edit."
+      redirect_to root_path
+    end
   end
 end
