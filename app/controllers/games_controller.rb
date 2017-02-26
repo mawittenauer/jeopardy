@@ -45,7 +45,6 @@ class GamesController < ApplicationController
   end
   
   def game_play
-    session[:return_to] ||= request.referer
     @game = Game.find(params[:id])
     if @game.complete?
       @game.increment!(:plays)
@@ -55,8 +54,7 @@ class GamesController < ApplicationController
         flash[:danger] += " Make sure each category has 5 answers."
         redirect_to @game
       else
-        redirect = session.delete(:return_to)
-        redirect_to redirect
+        redirect_to root_path
       end
     end
   end
