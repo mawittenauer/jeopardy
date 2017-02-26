@@ -5,8 +5,8 @@
     <div class="col-sm-3">
       <div class="well">
         <h3><%= game.name %></h3>
-        <%= link_to "play", game_play_url(game) %>
-        <%= link_to "edit", game %>
+        <%= link_to "play", game_play_url(game), class: "btn" %>
+        <%= link_to "edit", game, class: "btn" %>
       </div>
     </div>
   <% end %>
