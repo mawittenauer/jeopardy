@@ -2,6 +2,10 @@ require "rails_helper"
 
 describe GamesController do
   describe "POST create" do
+    before do
+      session[:user_id] = Fabricate(:user).id
+    end
+    
     it "shouldn't create a new game with invalid input" do
       post :create, game: { name: "", category: ["", "", "", "", "", ""] }
       expect(Game.count).to eq(0)

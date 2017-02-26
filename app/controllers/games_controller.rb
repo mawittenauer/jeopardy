@@ -1,6 +1,10 @@
 class GamesController < ApplicationController
   before_action :require_user
   
+  def index
+    @games = Game.all.order("plays DESC")
+  end
+  
   def new
     @game = Game.new
   end
@@ -41,6 +45,7 @@ class GamesController < ApplicationController
   
   def game_play
     @game = Game.find(params[:id])
+    @game.increment!(:plays)
   end
   
   private
