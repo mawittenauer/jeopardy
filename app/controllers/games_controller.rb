@@ -1,6 +1,10 @@
 class GamesController < ApplicationController
   before_action :require_user
   
+  def index
+    @games = Game.all.order("plays DESC")
+  end
+  
   def new
     @game = Game.new
   end

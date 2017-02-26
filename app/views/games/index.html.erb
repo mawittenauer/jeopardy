@@ -1,0 +1,13 @@
+<h2>Most Popular Games</h2>
+<br>
+<div class="row">
+  <% @games.each do |game| %>
+    <div class="col-sm-3">
+      <div class="well">
+        <h3><%= game.name %></h3>
+        <p>Plays: <%= game.plays %></p>
+        <%= link_to "play", game_play_url(game) %>
+      </div>
+    </div>
+  <% end %>
+</div>
