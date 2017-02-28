@@ -59,6 +59,10 @@ class GamesController < ApplicationController
     end
   end
   
+  def search
+    @games = Search.search_games(params[:search_term])
+  end
+  
   private
   def game_params
     params.require(:game).permit(:name)

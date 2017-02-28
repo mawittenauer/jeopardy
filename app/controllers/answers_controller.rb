@@ -16,7 +16,7 @@ class AnswersController < ApplicationController
         render 'games/show'
       end
     else
-      render 'games/show'
+      redirect_to @game
     end
   end
   
