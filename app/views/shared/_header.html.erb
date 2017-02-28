@@ -20,6 +20,12 @@
           <li><%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %></li>
         <% end %>
       </ul>
+      <%= form_tag search_games_path, method: :get, :class => "navbar-form navbar-right" do %>
+        <div class="form-group">
+          <%= text_field_tag :search_term, "", class: "form-control" %>
+        </div>
+        <%= submit_tag "Seach", class: "btn btn-default" %>
+      <% end %>
     </div>
   </div>
 </nav>
