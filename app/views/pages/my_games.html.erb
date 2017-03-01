@@ -9,8 +9,14 @@
         <div class="progress progress-striped">
           <div class="progress-bar progress-bar-success" style="width: <%= game.percent_complete %>"></div>
         </div>
-        <%= link_to "play", game_play_url(game), class: "btn" if game.complete? %>
-        <%= link_to "edit", game, class: "btn"%>
+        <%= link_to game, class: "btn btn-warning btn-game" do %>
+          edit <i class="glyphicon glyphicon-edit"></i>
+        <% end %>
+        <% if game.complete? %>
+          <%= link_to game_play_url(game), class: "btn btn-success btn-game" do %>
+            play <i class="glyphicon glyphicon-expand"></i>
+          <% end %>
+        <% end %>
       </div>
     </div>
   <% end %>
