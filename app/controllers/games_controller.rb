@@ -1,7 +1,7 @@
 class GamesController < ApplicationController
   before_action :require_user
-  before_action :find_game, only: [:show]
-  before_action :require_creator, only: [:show]
+  before_action :find_game, only: [:show, :destroy]
+  before_action :require_creator, only: [:show, :destroy]
   
   def index
     @games = Game.where("plays > ?", 0).order("plays DESC")
@@ -42,6 +42,11 @@ class GamesController < ApplicationController
       flash.now[:danger] = "You must enter a game name and six categories"
       render :new
     end
+  end
+  
+  def destroy
+    @game.destroy
+    redirect_to my_games_path
   end
   
   def game_play

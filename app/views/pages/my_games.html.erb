@@ -9,6 +9,9 @@
         <div class="progress progress-striped">
           <div class="progress-bar progress-bar-success" style="width: <%= game.percent_complete %>"></div>
         </div>
+        <%= link_to game, class: "btn btn-danger btn-game", method: :delete, :data => {:confirm => 'Are you sure?'} do %>
+          delete <i class="glyphicon glyphicon-trash"></i>
+        <% end %>
         <%= link_to game, class: "btn btn-warning btn-game" do %>
           edit <i class="glyphicon glyphicon-edit"></i>
         <% end %>
