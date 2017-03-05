@@ -45,6 +45,9 @@ class GamesController < ApplicationController
   end
   
   def destroy
+    @game.categories.each do |category|
+      category.destroy
+    end
     @game.destroy
     redirect_to my_games_path
   end
