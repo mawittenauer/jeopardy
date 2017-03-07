@@ -55,12 +55,12 @@ class GamesController < ApplicationController
     @category_five = @game.categories[4]
     @category_six = @game.categories[5]
     
-    @category_one.update_attribute("name", params[:game][:category][0])
-    @category_two.update_attribute("name", params[:game][:category][1])
-    @category_three.update_attribute("name", params[:game][:category][2])
-    @category_four.update_attribute("name", params[:game][:category][3])
-    @category_five.update_attribute("name", params[:game][:category][4])
-    @category_six.update_attribute("name", params[:game][:category][5])
+    @category_one.name = params[:game][:category][0]
+    @category_two.name = params[:game][:category][1]
+    @category_three.name = params[:game][:category][2]
+    @category_four.name = params[:game][:category][3]
+    @category_five.name = params[:game][:category][4]
+    @category_six.name = params[:game][:category][5]
     
     if @game.valid? && @category_one.valid? && @category_two.valid? && 
        @category_three.valid? && @category_four.valid? && @category_five.valid? && @category_six.valid?
