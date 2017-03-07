@@ -1,5 +1,10 @@
 <h1 class="text-center"><%= @game.name %> <%= link_to "Play Game", game_play_path(@game), class: "btn btn-success", style: "margin-bottom: 5px;" if @game.complete? %></h1>
 <br>
+<div class="text-center">
+  <%= link_to "Edit Name and Categories", edit_game_path(@game), class: "btn btn-success" %>
+</div>
+<br>
+<br>
 <div class="row">
   <% @game.categories.each do |category| %>
   

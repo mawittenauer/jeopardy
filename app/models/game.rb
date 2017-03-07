@@ -1,6 +1,6 @@
 class Game < ActiveRecord::Base
   validates_presence_of :name
-  has_many :categories
+  has_many :categories, :dependent => :delete_all
   belongs_to :user
   
   def complete?
